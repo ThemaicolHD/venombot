@@ -37,7 +37,7 @@ function start(client) {
       if (body == mensaje.OPTION_1[0] || body == mensaje.OPTION_1[1]){
         sendMessage = "¿tienes un producto que ya haya generado ventas? \n\nsi tu respuesta es Si, digita el numero 1. \n\nsi tu respuesta es No, digita el numero 2.";
       }else 
-      if(body == mensaje.OPTION_1[2]){
+      if(body == mensaje.OPTION_1[2] || body == mensaje.OPTION_1[3]){
         sendMessage = "¿tienes una empresa legalmente constituida? \n\nsi tu respuesta es Si, digita el numero 3. \n\nsi tu respuesta es No, digita el numero 4.";
       }
     
@@ -52,6 +52,7 @@ function start(client) {
       });
     }
     else if (mensaje.RESPUESTA.includes(body) && steps == 3) {
+      steps = 4
       if (body == mensaje.RESPUESTA[0]){
         sendMessage = "Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/watch?v=mCdA4bJAGGk";
       }
@@ -83,6 +84,31 @@ function start(client) {
       });
       body= "";
     }
+    else if (mensaje.OPTION_1.includes(body) && steps == 4) {
+      steps = 5
+      if(body == mensaje.OPTION_1[4]){
+        steps = 1
+        backToMenu = true;
+        sendMessage = wellcomeMesage;       
+      }
+      
+      client
+      .sendText(message.from, sendMessage)
+      .then((result) => {
+        console.log('Result: ', result); //return object success
+        if(body == "regresar"){         
+        return;
+        }
+      })
+      .catch((erro) => {
+        console.error('Error when sending: ', erro); //return object error
+        if(body == "regresar"){
+          return;
+          }
+      });
+      body= "";
+    }
+
 
 
 
