@@ -5,7 +5,7 @@ const venom = require('venom-bot');
 let backToMenu = false;
 let steps = 1;
 let sendMessage;
-let wellcomeMesage="¡Hola! Soy Mostro, tu asesor virtual de Emprendimiento SENA y te puedo mostrar una ruta para construir. \n\nConoce tus opciones para emprender con nosotros: \n\n1. Crear - Ideas de negocio 💡 \n2. Crecer - Empresas o unidades productivas 🚀 \n\nDigita la opción deseada.";
+let wellcomeMesage = "¡Hola! Soy Mostro, tu asesor virtual de Emprendimiento SENA y te puedo mostrar una ruta para construir. \n\nConoce tus opciones para emprender con nosotros: \n\n1. Crear - Ideas de negocio 💡 \n2. Crecer - Empresas o unidades productivas 🚀 \n\nDigita la opción deseada.";
 venom
   .create({
     session: 'session-name', //name of session
@@ -62,27 +62,17 @@ function start(client) {
       else if(body == mensaje.RESPUESTA[1] || body == mensaje.RESPUESTA[3]){
         sendMessage = "¿tienes una idea de negocio?";
       }
-      else if(body == mensaje.OPTION_1[6]){
-        steps = 1
-        backToMenu = true;
-        sendMessage = wellcomeMesage;       
-      }
-      
+
+      body = "";
       client
       .sendText(message.from, sendMessage)
       .then((result) => {
         console.log('Result: ', result); //return object success
-        if(body == "regresar"){         
-        return;
-        }
       })
       .catch((erro) => {
         console.error('Error when sending: ', erro); //return object error
-        if(body == "regresar"){
-          return;
-          }
       });
-      body= "";
+
     }
     else if (mensaje.OPTION_1.includes(body) && steps == 4) {
       steps = 5
@@ -108,9 +98,6 @@ function start(client) {
       });
       body= "";
     }
-
-
-
 
     else{
       body= "";
