@@ -111,4 +111,3 @@ function start(client) {
     }
   });
 }
-// EDUARDO ES GAY 
