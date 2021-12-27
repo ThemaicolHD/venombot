@@ -34,11 +34,11 @@ function start(client) {
     }
     else if ((mensaje.OPTION_1.includes(body) && steps == 2) || backToMenu) {
       steps = 3
-      if (body == mensaje.OPTION_1[0] || body == mensaje.OPTION_1[1] || body == mensaje.OPTION_1[2]){
-        sendMessage = "¿tienes un producto que ya haya generado ventas? \n\nResponda Si o No";
+      if (body == mensaje.OPTION_1[0] || body == mensaje.OPTION_1[1]){
+        sendMessage = "¿tienes un producto que ya haya generado ventas? \n\nsi tu respuesta es Si, digita el numero 1. \n\nsi tu respuesta es No, digita el numero 2.";
       }else 
-      if(body == mensaje.OPTION_1[3] || body == mensaje.OPTION_1[4]){
-        sendMessage = "¿tienes una empresa legalmente constituida? \n\nResponda Si o No";
+      if(body == mensaje.OPTION_1[2]){
+        sendMessage = "¿tienes una empresa legalmente constituida? \n\nsi tu respuesta es Si, digita el numero 3. \n\nsi tu respuesta es No, digita el numero 4.";
       }
     
       body = "";
@@ -55,7 +55,10 @@ function start(client) {
       if (body == mensaje.RESPUESTA[0]){
         sendMessage = "Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/watch?v=mCdA4bJAGGk";
       }
-      else if(body == mensaje.RESPUESTA[1]){
+      else if(body == mensaje.RESPUESTA[2]){
+        sendMessage = "¿Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/channel/UC-uc1oWLN9eukRG4-co5UAA?";
+      }
+      else if(body == mensaje.RESPUESTA[1] || body == mensaje.RESPUESTA[3]){
         sendMessage = "¿tienes una idea de negocio?";
       }
       else if(body == mensaje.OPTION_1[6]){
