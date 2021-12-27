@@ -98,6 +98,31 @@ function start(client) {
       });
       body= "";
     }
+    else if (mensaje.OPTION_1.includes(body) && steps == 4) {
+      steps = 5
+      if(body == mensaje.OPTION_1[4]){
+        steps = 1
+        backToMenu = true;
+        sendMessage = wellcomeMesage;       
+      }
+      
+      client
+      .sendText(message.from, sendMessage)
+      .then((result) => {
+        console.log('Result: ', result); //return object success
+        if(body == "regresar"){         
+        return;
+        }
+      })
+      .catch((erro) => {
+        console.error('Error when sending: ', erro); //return object error
+        if(body == "regresar"){
+          return;
+          }
+      });
+      body= "";
+    }
+
 
     else{
       body= "";
