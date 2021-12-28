@@ -13,30 +13,7 @@
         "quisiera saber si venden",
         "necesito saber"
     ],
-    "STEP_2": [
-        "catalogo",
-        "productos",
-        "categoría"
-    ],
-    "STEP_3": [
-        "asesor",
-        "asesores",
-        "Vendedor",
-        "cobrador"
-    ],
-    "STEP_4": [
-        "muchas gracias",
-        "ok",
-        "gracias",
-        "vale gracias"
-    ],
-    "STEP_5": [
-        "hacer pedido"
-    ],
-    "STEP_5_5": [
-        "si",
-        "correcto"
-    ],
+    
     "OPTION_1": [
         "crear",
         "negocio",
