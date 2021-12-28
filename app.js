@@ -53,13 +53,13 @@ function start(client) {
     }
     else if (mensaje.RESPUESTA.includes(body) && steps == 3) {
       steps = 4
-      if (body == mensaje.RESPUESTA[0]){
+      if (body == mensaje.RESPUESTA[0] || body == mensaje.RESPUESTA[1]){
         sendMessage = "Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/watch?v=mCdA4bJAGGk";
       }
-      else if(body == mensaje.RESPUESTA[2]){
+      else if(body == mensaje.RESPUESTA[4] || body == mensaje.RESPUESTA[5]){
         sendMessage = "¿Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/channel/UC-uc1oWLN9eukRG4-co5UAA?";
       }
-      else if(body == mensaje.RESPUESTA[1] || body == mensaje.RESPUESTA[3]){
+      else if(body == mensaje.RESPUESTA[2] ||body == mensaje.RESPUESTA[3] || body == mensaje.RESPUESTA[6]|| body == mensaje.RESPUESTA[7] ){
         sendMessage = "¿tienes una idea de negocio?";
       }
 

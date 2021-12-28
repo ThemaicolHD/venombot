@@ -6,6 +6,7 @@
         "inicio",
         "welcome",
         "buenos días",
+        "buenos dias",
         "buenas tardes",
         "buenas noches",
         "me dieron este número",
@@ -13,7 +14,7 @@
         "quisiera saber si venden",
         "necesito saber"
     ],
-    
+
     "OPTION_1": [
         "crear",
         "negocio",
@@ -24,16 +25,27 @@
     ],
     "RESPUESTA": [
        "1",
+       "1.",
        "2",
+       "2.",
        "3",
+       "3.",
        "4",
+       "4.",
        "5",
+       "5.",
        "6",
+       "6.",
        "7",
+       "7.",
        "8",
+       "8.",
        "9",
+       "9.",
        "10",
-       "11"
+       "10.",
+       "11",
+       "11."
     
     ],
     "ERROR": [
