@@ -51,16 +51,16 @@ function start(client) {
         console.error('Error when sending: ', erro); //return object error
       });
     }
-    else if (mensaje.RESPUESTA.includes(body) && steps == 3) {
+    else if (mensaje.RESPUESTA.includes(body) && steps == 3 || backToMenu) {
       steps = 4
       if (body == mensaje.RESPUESTA[0] || body == mensaje.RESPUESTA[1]){
-        sendMessage = "Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/watch?v=mCdA4bJAGGk";
+        sendMessage = "Puedes inscribirte a nuestras charlas de orientación a emprendedores virtual 👩🏼‍💻👨🏻‍💻 o presencial 👩🏾‍🏫👨🏻‍🏫los días jueves de emprendimiento llenando el siguiente formulario: \n\nhttps://forms.gle/4pzh7dR7DQYNs5y7A  📨📩 \n\nRegresar ↩️";
       }
       else if(body == mensaje.RESPUESTA[4] || body == mensaje.RESPUESTA[5]){
-        sendMessage = "¿Genial, a continuacion te adjunto el link al cual puedes dirigirte para realizar el formulario: \n\nhttps://www.youtube.com/channel/UC-uc1oWLN9eukRG4-co5UAA?";
+        sendMessage = "Puedes inscribirte a nuestras charlas de orientación a emprendedores virtual 👩🏼‍💻👨🏻‍💻 o presencial 👩🏾‍🏫👨🏻‍🏫los días jueves de emprendimiento llenando el siguiente formulario: \n\nhttps://forms.gle/4pzh7dR7DQYNs5y7A  📨📩 \n\nRegresar ↩️";
       }
       else if(body == mensaje.RESPUESTA[2] ||body == mensaje.RESPUESTA[3] || body == mensaje.RESPUESTA[6]|| body == mensaje.RESPUESTA[7] ){
-        sendMessage = "¿tienes una idea de negocio?";
+        sendMessage = "¿tienes una idea de negocio? \n\nsi tu respuesta es Si, digita el numero 5. \n\nsi tu respuesta es No, digita el numero 6.";
       }
 
       body = "";
@@ -74,12 +74,32 @@ function start(client) {
       });
 
     }
-    else if (mensaje.OPTION_1.includes(body) && steps == 4) {
+    else if (mensaje.RESPUESTA.includes(body) && steps == 4 || backToMenu) {
       steps = 5
+      if (body == mensaje.RESPUESTA[8] || body == mensaje.RESPUESTA[9]){
+        sendMessage = "Puedes inscribirte a nuestras charlas de orientación a emprendedores virtual 👩🏼‍💻👨🏻‍💻 o presencial 👩🏾‍🏫👨🏻‍🏫los días jueves de emprendimiento llenando el siguiente formulario: \n\nhttps://forms.gle/4pzh7dR7DQYNs5y7A  📨📩 \n\nRegresar ↩️";
+      }
+      else if(body == mensaje.RESPUESTA[10] ||body == mensaje.RESPUESTA[11]){
+        sendMessage = "¿tienes una muestra del producto? \n\nsi tu respuesta es Si, digita el numero 7.";
+      }
+
+
+      body = "";
+      client
+      .sendText(message.from, sendMessage)
+      .then((result) => {
+        console.log('Result: ', result); //return object success
+      })
+      .catch((erro) => {
+        console.error('Error when sending: ', erro); //return object error
+      });
+
+    }
+    else if (mensaje.OPTION_1.includes(body) && steps == 5) {
       if(body == mensaje.OPTION_1[4]){
         steps = 1
         backToMenu = true;
-        sendMessage = wellcomeMesage;       
+        sendMessage = "escribe un hola de nuevo para repetir el proceso :D";       
       }
       
       client
